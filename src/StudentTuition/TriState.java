@@ -1,2 +1,8 @@
-package StudentTuition;public class TriState {
+/**
+ * @author Shreya Pandey
+ * @author Medhasri Veldurthi
+ */
+package StudentTuition;
+
+public class TriState {
 }

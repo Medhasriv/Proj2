@@ -1,2 +1,8 @@
-package StudentTuition;public class Resident {
+/**
+ * @author Shreya Pandey
+ * @author Medhasri Veldurthi
+ */
+package StudentTuition;
+
+public class Resident {
 }
