@@ -5,4 +5,5 @@
 package StudentTuition;
 
 public class Resident {
+    private int scholarship;
 }
