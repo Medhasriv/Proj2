@@ -3,6 +3,10 @@
  * @author Medhasri Veldurthi
  */
 package StudentTuition;
+
+//Enrollment
+// nonResident
+//international
 public abstract class Student implements Comparable<Student>{
     private Profile profile;
     private Major major; //Major is an enum type
@@ -157,6 +161,20 @@ public abstract class Student implements Comparable<Student>{
 
     }
 
+    public boolean isValid(int creditEnrolled)
+    {
+
+    }
+
+    public abstract double tuitionDue(int creditsEnrolled)
+    {
+
+    }
+
+    public abstract boolean isResident()
+    {
+
+    }
 
     public static void main()
     {
@@ -167,8 +185,7 @@ public abstract class Student implements Comparable<Student>{
         test1.getProfile();
         test1.toString();
         test1.equals(test1);
-
-        Student test2 = new Student(new Profile("Veldurthi", "Medhasri", new Date(2003, 8, 5)), Major.CS, 99);
+        //Student test2 = new Student(new Profile("Veldurthi", "Medhasri", new Date(2003, 8, 5)), Major.CS, 99);
         test1.compareTo(test2);
     }
 }

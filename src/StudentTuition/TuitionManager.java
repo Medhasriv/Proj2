@@ -78,7 +78,8 @@ public class TuitionManager {
                         //making sure credits are positive
                         if (credits >= 0) {
                             //checking if student is in the roster, then adding student meeting all requirements
-                            Student newStudent = new Student(thisStudent, studentMajorEnum, credits);
+                            Student newStudent;
+                            newStudent = new Student(thisStudent, studentMajorEnum, credits);
                             if (!newRoster.contains(newStudent)) {
                                 newRoster.add(newStudent);
                                 System.out.println(thisStudent.toString() + " added to the roster.");
