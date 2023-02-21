@@ -14,7 +14,6 @@ public class EnrollStudent {
         creditsEnrolled = 0;
     }
 
-
     @Override
     public boolean equals(Object other)
     {
@@ -25,7 +24,6 @@ public class EnrollStudent {
             return this.profile.equals(((Student) other).getProfile());
         }
         return false;
-            //WHAT DOES THIS MEAN??
     }
 
 

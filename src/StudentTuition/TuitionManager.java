@@ -4,6 +4,8 @@
  */
 package StudentTuition;
 import StudentTuition.Student;
+
+import java.io.File;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 public class TuitionManager {
@@ -26,7 +28,14 @@ public class TuitionManager {
                 System.out.print("Roster Manager terminated");
                 checkQuit = true;
                 break;
-            } else {
+            }else if(inputString.equals("LS")){
+                    File inPutfile = new File("studentList.txt");
+                    Scanner fileScanner = new Scanner(inPutfile);
+                    while(fileScanner.hasNextLine()){
+                        String line = fileScanner.nextLine();
+                        assignValues(inputString.replace(',', ' '));
+                    }
+            }else{
                 assignValues(inputString);
             }
         }
@@ -311,7 +320,8 @@ public class TuitionManager {
 
         }else if(action.equals("PT")){
 
-        }else if(action.equals("SE")){
+        }else if(action.equals("SE")) {
+
 
         }else if(action.equals("R")) {
             //string tokenizer takes in first name, last name, date of birth
