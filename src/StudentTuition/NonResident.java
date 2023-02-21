@@ -27,8 +27,6 @@ public class NonResident extends Student{
 
         return tuition;
 
-        //still need to add tristate area discounts
-        //use tristate class
     }
 
     public String studentStatus()

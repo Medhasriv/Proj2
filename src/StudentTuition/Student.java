@@ -38,6 +38,7 @@ public abstract class Student implements Comparable<Student>{
         this.creditCompleted = 0;
     }
 
+
     /**
      * Returns the school of the student
      * @return String with the school of the student
