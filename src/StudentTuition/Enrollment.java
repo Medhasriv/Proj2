@@ -13,17 +13,25 @@ public class Enrollment {
         enrollStudents = null;
         size = 0;
     }
+
+    public Enrollment(EnrollStudent []enrollList, int s)
+    {
+        enrollStudents=enrollList;
+        size = s;
+    }
     public void add(EnrollStudent enrollStudent)
     {
+
         enrollStudents[size] = (enrollStudent);
+        size++;
     }
 
     public void remove(EnrollStudent enrollStudent)
     {
-        int indexOfRemove;
+        int indexOfRemove=0;
         for(int i =0; i<enrollStudents.length; i++)
         {
-            if(enrollStudents[i].equals(enrollStudent)
+            if(enrollStudents[i].equals(enrollStudent))
             {
                 enrollStudents[i] = null;
                 indexOfRemove = i;
@@ -34,12 +42,13 @@ public class Enrollment {
         {
             enrollStudents[indexOfRemove] = enrollStudents[i+1];
         }
+        size--;
     }
 
 
     public boolean contains(EnrollStudent enrollStudent)
     {
-        for(int i=0; i<enrollStudent.length; i++)
+        for(int i=0; i<enrollStudents.length; i++)
         {
             if(enrollStudents[i].equals(enrollStudent))
             {

@@ -3,7 +3,7 @@
  * @author Medhasri Veldurthi
  */
 package StudentTuition;
-
+import StudentTuition.Student;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 public class TuitionManager {

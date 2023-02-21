@@ -12,7 +12,6 @@ public abstract class Student implements Comparable<Student>{
     private Major major; //Major is an enum type
     private int creditCompleted;
 
-    private int b;
 
     /**
      * Makes a student given profile, major, and credits
@@ -163,30 +162,31 @@ public abstract class Student implements Comparable<Student>{
 
     public boolean isValid(int creditEnrolled)
     {
-
+        if(creditCompleted>=3 && creditCompleted <=24)
+        {
+            return true;
+        }
+        return false;
     }
 
-    public abstract double tuitionDue(int creditsEnrolled)
-    {
 
-    }
 
-    public abstract boolean isResident()
-    {
+    public abstract double tuitionDue(int creditsEnrolled);
 
-    }
+    public abstract boolean isResident();
+
 
     public static void main()
     {
-        Student test1 = new Student(new Profile("Pandey", "Shreya", new Date(2003, 8, 18)), Major.EE, 100);
-        test1.getSchool();
-        test1.getMajor();
-        test1.setMajor(Major.CS);
-        test1.getProfile();
-        test1.toString();
-        test1.equals(test1);
-        //Student test2 = new Student(new Profile("Veldurthi", "Medhasri", new Date(2003, 8, 5)), Major.CS, 99);
-        test1.compareTo(test2);
+//       Student test1 = new Student(new Profile("Pandey", "Shreya", new Date(2003, 8, 18)), Major.EE, 100);
+//        test1.getSchool();
+//        test1.getMajor();
+//        test1.setMajor(Major.CS);
+//        test1.getProfile();
+//        test1.toString();
+//        test1.equals(test1);
+      //  Student test2 = new Student(new Profile("Veldurthi", "Medhasri", new Date(2003, 8, 5)), Major.CS, 99);
+     //   test1.compareTo(test2);
     }
 }
 

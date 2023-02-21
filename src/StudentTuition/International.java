@@ -12,8 +12,27 @@ public class International extends NonResident{
         super(p, m, cc);
         isStudyAbroad = abroad;
     }
+    @Override
+    public double tuitionDue(int creditsEnrolled) {
 
-    public boolean isStudyAborad(boolean studentAbroad)
+        double tuition = 0;
+        if(!(isStudyAbroad))
+        {
+            if(creditsEnrolled>=12 && creditsEnrolled <=24)
+            {
+                 tuition = 29737 + 3268 + 2650;
+            }
+        }
+        else
+        {
+            tuition = 3268 + 2650;
+        }
+        return tuition;
+
+    }
+
+
+    public boolean isStudyAbroad(boolean studentAbroad)
     {
         if(studentAbroad == true)
         {
@@ -21,4 +40,7 @@ public class International extends NonResident{
         }
         return false;
     }
+
+
+
 }

@@ -8,15 +8,30 @@ public class EnrollStudent {
     private Profile profile;
     private int creditsEnrolled;
 
+    public EnrollStudent()
+    {
+        profile = null;
+        creditsEnrolled = 0;
+    }
+
+
     @Override
-    public boolean equals(Object other){
-        if(other instanceof Profile){
+    public boolean equals(Object other)
+    {
+        if(other instanceof Student)
+        {
+            Student student = (Student) other;
+
+            return this.profile.equals(((Student) other).getProfile());
+        }
+        return false;
             //WHAT DOES THIS MEAN??
     }
 
+
     @Override
     public String toString() {
-        return(""+creditsEnrolled);
+        return "" + creditsEnrolled;
     }
 
 }
