@@ -45,9 +45,111 @@ public class TuitionManager {
         String action = st.nextToken();
 
 
-        if(action.equals("A")) {
-            //string tokenizer to divide up the string
+//        if(action.equals("A")) {
+//            //string tokenizer to divide up the string
+//
+//            String firstName = st.nextToken();
+//            String lastName = st.nextToken();
+//            String dob = st.nextToken();
+//            String major = st.nextToken().toUpperCase();
+//            int credits = Integer.parseInt((st.nextToken()));
+//
+//            //current date + checking if valid
+//            Date d = new Date(dob);
+//            boolean isValid = d.isValid();
+//
+//            //making a student profile and age is valid
+//            Profile thisStudent = new Profile(lastName, firstName, d);
+//            int age = thisStudent.getAge();
+//
+//            //checking if major exists
+//            boolean containsMajor = false;
+//            for(int i=0; i<majorList.length; i++){
+//                if(majorList[i].equals(major)){
+//                    containsMajor = true;
+//                }
+//            }
+//
+//            //checking for valid DOB + age, adding an ENUM if this exists
+//            if(age > 16){
+//                if (isValid) {
+//                    if (containsMajor) {
+//                        Major studentMajorEnum = Major.valueOf(major);
+//                        //making sure credits are positive
+//                        if (credits >= 0) {
+//                            //checking if student is in the roster, then adding student meeting all requirements
+//                            Student newStudent;
+////                            newStudent = new Student(thisStudent, studentMajorEnum, credits);
+////                            if (!newRoster.contains(newStudent)) {
+////                                newRoster.add(newStudent);
+//                                System.out.println(thisStudent.toString() + " added to the roster.");
+//                            }else{
+//                                System.out.println(thisStudent.toString()+" is already in the roster.");
+//                            }
+//                        }else{
+//                            System.out.println("Credits completed invalid: cannot be negative!");
+//                        }
+//                    }else{
+//                        System.out.println("Major code invalid:" + major.toString());
+//                    }
+//                }else{
+//                    System.out.println("DOB invalid: " + dob.toString() + " not a valid calendar date!");
+//                }
+//            }else{
+////                System.out.println("DOB invalid: " + dob.toString() + " is younger than 16 years old.");
+//            }
 
+        if(action.equals("AR")){
+                String firstName = st.nextToken();
+                String lastName = st.nextToken();
+                String dob = st.nextToken();
+                String major = st.nextToken().toUpperCase();
+                int credits = Integer.parseInt((st.nextToken()));
+
+                //current date + checking if valid
+                Date d = new Date(dob);
+                boolean isValid = d.isValid();
+
+                //making a student profile and age is valid
+                Profile thisStudent = new Profile(lastName, firstName, d);
+                int age = thisStudent.getAge();
+
+                //checking if major exists
+                boolean containsMajor = false;
+                for(int i=0; i<majorList.length; i++){
+                    if(majorList[i].equals(major)){
+                        containsMajor = true;
+                    }
+                }
+
+                //checking for valid DOB + age, adding an ENUM if this exists
+                if(age > 16){
+                    if (isValid) {
+                        if (containsMajor) {
+                            Major studentMajorEnum = Major.valueOf(major);
+                            //making sure credits are positive
+                            if (credits >= 0) {
+                                //checking if student is in the roster, then adding student meeting all requirements
+                                Resident newResident = new Resident(thisStudent, studentMajorEnum, credits);
+                                if (!newRoster.contains(newResident)) {
+                                    newRoster.add(newResident);
+                                    System.out.println(thisStudent.toString() + " added to the roster.");
+                                }else{
+                                    System.out.println(thisStudent.toString()+" is already in the roster.");
+                                }
+                            }else{
+                                System.out.println("Credits completed invalid: cannot be negative!");
+                            }
+                        }else{
+                            System.out.println("Major code invalid:" + major.toString());
+                        }
+                    }else{
+                        System.out.println("DOB invalid: " + dob.toString() + " not a valid calendar date!");
+                    }
+                }else{
+                    System.out.println("DOB invalid: " + dob.toString() + " is younger than 16 years old.");
+                }
+        }else if(action.equals("AN")) {
             String firstName = st.nextToken();
             String lastName = st.nextToken();
             String dob = st.nextToken();
@@ -64,42 +166,154 @@ public class TuitionManager {
 
             //checking if major exists
             boolean containsMajor = false;
-            for(int i=0; i<majorList.length; i++){
-                if(majorList[i].equals(major)){
+            for (int i = 0; i < majorList.length; i++) {
+                if (majorList[i].equals(major)) {
                     containsMajor = true;
                 }
             }
 
             //checking for valid DOB + age, adding an ENUM if this exists
-            if(age > 16){
+            if (age > 16) {
                 if (isValid) {
                     if (containsMajor) {
                         Major studentMajorEnum = Major.valueOf(major);
                         //making sure credits are positive
                         if (credits >= 0) {
                             //checking if student is in the roster, then adding student meeting all requirements
-                            Student newStudent;
-                            newStudent = new Student(thisStudent, studentMajorEnum, credits);
-                            if (!newRoster.contains(newStudent)) {
-                                newRoster.add(newStudent);
+                            Resident newNonResident = new Resident(thisStudent, studentMajorEnum, credits);
+                            if (!newRoster.contains(newNonResident)) {
+                                newRoster.add(newNonResident);
                                 System.out.println(thisStudent.toString() + " added to the roster.");
-                            }else{
-                                System.out.println(thisStudent.toString()+" is already in the roster.");
+                            } else {
+                                System.out.println(thisStudent.toString() + " is already in the roster.");
                             }
-                        }else{
+                        } else {
                             System.out.println("Credits completed invalid: cannot be negative!");
                         }
-                    }else{
+                    } else {
                         System.out.println("Major code invalid:" + major.toString());
                     }
-                }else{
+                } else {
                     System.out.println("DOB invalid: " + dob.toString() + " not a valid calendar date!");
                 }
-            }else{
+            } else {
+                System.out.println("DOB invalid: " + dob.toString() + " is younger than 16 years old.");
+            }
+        }else if(action.equals("AT")){
+            String firstName = st.nextToken();
+            String lastName = st.nextToken();
+            String dob = st.nextToken();
+            String major = st.nextToken().toUpperCase();
+            int credits = Integer.parseInt((st.nextToken()));
+
+            //current date + checking if valid
+            Date d = new Date(dob);
+            boolean isValid = d.isValid();
+
+            //making a student profile and age is valid
+            Profile thisStudent = new Profile(lastName, firstName, d);
+            int age = thisStudent.getAge();
+
+            //checking if major exists
+            boolean containsMajor = false;
+            for (int i = 0; i < majorList.length; i++) {
+                if (majorList[i].equals(major)) {
+                    containsMajor = true;
+                }
+            }
+
+            //checking for valid DOB + age, adding an ENUM if this exists
+            if (age > 16) {
+                if (isValid) {
+                    if (containsMajor) {
+                        Major studentMajorEnum = Major.valueOf(major);
+                        //making sure credits are positive
+                        if (credits >= 0) {
+                            //checking if student is in the roster, then adding student meeting all requirements
+                            Resident newTriState = new Resident(thisStudent, studentMajorEnum, credits);
+                            if (!newRoster.contains(newTriState)) {
+                                newRoster.add(newTriState);
+                                System.out.println(thisStudent.toString() + " added to the roster.");
+                            } else {
+                                System.out.println(thisStudent.toString() + " is already in the roster.");
+                            }
+                        } else {
+                            System.out.println("Credits completed invalid: cannot be negative!");
+                        }
+                    } else {
+                        System.out.println("Major code invalid:" + major.toString());
+                    }
+                } else {
+                    System.out.println("DOB invalid: " + dob.toString() + " not a valid calendar date!");
+                }
+            } else {
+                System.out.println("DOB invalid: " + dob.toString() + " is younger than 16 years old.");
+            }
+        }else if(action.equals("AI")){
+            String firstName = st.nextToken();
+            String lastName = st.nextToken();
+            String dob = st.nextToken();
+            String major = st.nextToken().toUpperCase();
+            int credits = Integer.parseInt((st.nextToken()));
+
+            //current date + checking if valid
+            Date d = new Date(dob);
+            boolean isValid = d.isValid();
+
+            //making a student profile and age is valid
+            Profile thisStudent = new Profile(lastName, firstName, d);
+            int age = thisStudent.getAge();
+
+            //checking if major exists
+            boolean containsMajor = false;
+            for (int i = 0; i < majorList.length; i++) {
+                if (majorList[i].equals(major)) {
+                    containsMajor = true;
+                }
+            }
+
+            //checking for valid DOB + age, adding an ENUM if this exists
+            if (age > 16) {
+                if (isValid) {
+                    if (containsMajor) {
+                        Major studentMajorEnum = Major.valueOf(major);
+                        //making sure credits are positive
+                        if (credits >= 0) {
+                            //checking if student is in the roster, then adding student meeting all requirements
+                            Resident International = new Resident(thisStudent, studentMajorEnum, credits);
+                            if (!newRoster.contains(International)) {
+                                newRoster.add(International);
+                                System.out.println(thisStudent.toString() + " added to the roster.");
+                            } else {
+                                System.out.println(thisStudent.toString() + " is already in the roster.");
+                            }
+                        } else {
+                            System.out.println("Credits completed invalid: cannot be negative!");
+                        }
+                    } else {
+                        System.out.println("Major code invalid:" + major.toString());
+                    }
+                } else {
+                    System.out.println("DOB invalid: " + dob.toString() + " not a valid calendar date!");
+                }
+            } else {
                 System.out.println("DOB invalid: " + dob.toString() + " is younger than 16 years old.");
             }
 
-        } else if(action.equals("R")) {
+        }else if(action.equals("E")){
+            //Medhasri - E, D, S
+
+        }else if(action.equals("D")){
+
+        }else if(action.equals("S")){
+
+        }else if(action.equals("PE")){
+
+        }else if(action.equals("PT")){
+
+        }else if(action.equals("SE")){
+
+        }else if(action.equals("R")) {
             //string tokenizer takes in first name, last name, date of birth
             String firstName = st.nextToken();
             String lastName = st.nextToken();
