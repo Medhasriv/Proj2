@@ -66,5 +66,14 @@ public class Enrollment {
         }
     }
 
+    public void updateCredits(EnrollStudent e, int updatedCredits){
+        for(int i=0; i<enrollStudents.length; i++) {
+            if(enrollStudents[i].equals(e)) {
+                EnrollStudent tempEnrolled =  enrollStudents[i];
+                tempEnrolled.setCredits(updatedCredits);
+            }
+        }
+    }
+
 
 }

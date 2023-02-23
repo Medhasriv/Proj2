@@ -49,4 +49,8 @@ public class Resident extends Student{
     public boolean isResident() {
         return true;
     }
+
+    public void setScholarship(int scholarship){
+        this.scholarship = scholarship;
+    }
 }

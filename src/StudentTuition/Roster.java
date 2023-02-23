@@ -31,7 +31,6 @@ public class Roster {
      * @return index of the student that is being searched
      */
     private int find(Student student) {
-        //ASK DOES THIS NEED TO BE "CONST INT" OR "FINAL INT" OR JUST "INT"
         int NOT_FOUND = -1;
         for (int i = 0; i < size; i++) {
             if (roster[i].equals(student)) {
@@ -40,6 +39,7 @@ public class Roster {
         }
         return NOT_FOUND;
     } //search the given student in roster
+
 
 
     /**
@@ -257,4 +257,15 @@ public class Roster {
         }
         return false;
     }
+
+    public Resident findResident(Profile p){
+        int NOT_FOUND = -1;
+        for (int i = 0; i < size; i++) {
+            if (roster[i].getProfile().equals(p)) {
+                return (Resident) roster[i];
+            }
+        }
+        return null;
+    }
+
 }

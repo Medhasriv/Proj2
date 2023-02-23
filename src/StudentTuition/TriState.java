@@ -11,6 +11,12 @@ public class TriState extends Student{
         super(p,m,cc);
     }
 
+    public TriState(Profile p, Major m, int cc, String State)
+    {
+        super(p,m,cc);
+        this.state = State;
+    }
+
 
 
     public double triStateDiscount()

@@ -6,17 +6,18 @@ package StudentTuition;
 import StudentTuition.Student;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 public class TuitionManager {
     Scanner input  = new Scanner(System.in);
     Roster newRoster = new Roster();
+    Enrollment enrollmentList = new Enrollment();
 
     /**
      * Reads all the line commands until the user types Q
      */
-    public void run()
-    {
+    public void run() throws FileNotFoundException {
         System.out.print("Roster Manager running...\n");
         String inputString;
         boolean checkQuit = false;
@@ -29,9 +30,8 @@ public class TuitionManager {
                 checkQuit = true;
                 break;
             }else if(inputString.equals("LS")){
-                    File inPutfile = new File("studentList.txt");
-                    Scanner fileScanner = new Scanner(inPutfile);
-                    while(fileScanner.hasNextLine()){
+                Scanner fileScanner = new Scanner(new File("studentList.txt"));
+                while(fileScanner.hasNextLine()){
                         String line = fileScanner.nextLine();
                         assignValues(inputString.replace(',', ' '));
                     }
@@ -214,6 +214,7 @@ public class TuitionManager {
             String dob = st.nextToken();
             String major = st.nextToken().toUpperCase();
             int credits = Integer.parseInt((st.nextToken()));
+            String state = st.nextToken().toUpperCase();
 
             //current date + checking if valid
             Date d = new Date(dob);
@@ -239,7 +240,7 @@ public class TuitionManager {
                         //making sure credits are positive
                         if (credits >= 0) {
                             //checking if student is in the roster, then adding student meeting all requirements
-                            Resident newTriState = new Resident(thisStudent, studentMajorEnum, credits);
+                            TriState newTriState = new TriState(thisStudent, studentMajorEnum, credits, state);
                             if (!newRoster.contains(newTriState)) {
                                 newRoster.add(newTriState);
                                 System.out.println(thisStudent.toString() + " added to the roster.");
@@ -264,6 +265,7 @@ public class TuitionManager {
             String dob = st.nextToken();
             String major = st.nextToken().toUpperCase();
             int credits = Integer.parseInt((st.nextToken()));
+            boolean abroad = Boolean.parseBoolean((st.nextToken()));
 
             //current date + checking if valid
             Date d = new Date(dob);
@@ -289,9 +291,9 @@ public class TuitionManager {
                         //making sure credits are positive
                         if (credits >= 0) {
                             //checking if student is in the roster, then adding student meeting all requirements
-                            Resident International = new Resident(thisStudent, studentMajorEnum, credits);
-                            if (!newRoster.contains(International)) {
-                                newRoster.add(International);
+                            International i = new International(thisStudent, studentMajorEnum, credits, abroad);
+                            if (!newRoster.contains(i)) {
+                                newRoster.add(i);
                                 System.out.println(thisStudent.toString() + " added to the roster.");
                             } else {
                                 System.out.println(thisStudent.toString() + " is already in the roster.");
@@ -310,11 +312,63 @@ public class TuitionManager {
             }
 
         }else if(action.equals("E")){
-            //Medhasri - E, D, S
+            String firstName = st.nextToken();
+            String lastName = st.nextToken();
+            String dob = st.nextToken();
+            int credits = Integer.parseInt((st.nextToken()));
+
+            //Checking date + making profile
+            Date d = new Date(dob);
+            boolean isValid = d.isValid();
+            Profile enrollProfile = new Profile(lastName, firstName, d);
+
+            //making enrollStudent and adding/updating credits
+            EnrollStudent newEnroll = new EnrollStudent(enrollProfile, credits);
+            if(enrollmentList.contains(newEnroll)){
+                //updating the credits if student already enrolled
+                enrollmentList.updateCredits(newEnroll, credits);
+            }else{
+                enrollmentList.add(newEnroll);
+            }
 
         }else if(action.equals("D")){
+            String firstName = st.nextToken();
+            String lastName = st.nextToken();
+            String dob = st.nextToken();
+            int credits = Integer.parseInt((st.nextToken()));
+
+            //Checking date + making profile
+            Date d = new Date(dob);
+            boolean isValid = d.isValid();
+            Profile enrollProfile = new Profile(lastName, firstName, d);
+
+            //making enrollStudent and removing if present
+            EnrollStudent newEnroll = new EnrollStudent(enrollProfile, credits);
+            if(enrollmentList.contains(newEnroll)){
+                enrollmentList.remove(newEnroll);
+            }else {
+                System.out.println("Your student is not enrolled");
+            }
 
         }else if(action.equals("S")){
+            String firstName = st.nextToken();
+            String lastName = st.nextToken();
+            String dob = st.nextToken();
+            int scholarshipAmt = Integer.parseInt((st.nextToken()));
+
+            //temporary profile to search for the resident
+            Date d = new Date(dob);
+            boolean isValid = d.isValid();
+            Profile findRes = new Profile(lastName, firstName, d);
+
+            //find if resident is in the roster
+            Resident r = newRoster.findResident(findRes);
+            if(r!=null){
+                //if yes then award scholarship
+                r.setScholarship(scholarshipAmt);
+            }else{
+                System.out.println("Resident not found.");
+            }
 
         }else if(action.equals("PE")){
 

@@ -10,10 +10,14 @@ public class EnrollStudent {
 
     public EnrollStudent()
     {
-        profile = null;
-        creditsEnrolled = 0;
+        this.profile = null;
+        this.creditsEnrolled = 0;
     }
 
+    public EnrollStudent(Profile p, int creditsEnrolled){
+        this.profile = p;
+        this.creditsEnrolled = creditsEnrolled;
+    }
     @Override
     public boolean equals(Object other)
     {
@@ -24,6 +28,14 @@ public class EnrollStudent {
             return this.profile.equals(((Student) other).getProfile());
         }
         return false;
+        //this doesnt feel right
+        //        if(other instanceof EnrollStudent)
+//        {
+//            EnrollStudent enrollStudent = (EnrollStudent) other;
+//
+//            return this.profile.equals(((EnrollStudent) other));
+//        }
+//        return false;
     }
 
 
@@ -31,5 +43,7 @@ public class EnrollStudent {
     public String toString() {
         return "" + creditsEnrolled;
     }
+
+    public void setCredits(int c){this.creditsEnrolled = c;}
 
 }
