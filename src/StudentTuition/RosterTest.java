@@ -6,7 +6,6 @@ class RosterTest {
 
     @org.junit.jupiter.api.Test
     public void test_add_resident() {
-        //medhasri will do
         Roster ros = new Roster();
         Date d = new Date("2/2/2222");
         Profile p = new Profile("Shreya", "Cars", d);
@@ -15,7 +14,6 @@ class RosterTest {
     }
 
     public void test_add_nonResident() {
-        //medhasri will do
         Roster ros = new Roster();
         Date d = new Date("2/2/2222");
         Profile p = new Profile("Medhasri", "Architect", d);
@@ -40,7 +38,6 @@ class RosterTest {
     }
 
     public void test_remove_resident() {
-        //medhasri will do
         Roster ros = new Roster();
         Date d = new Date("2/2/2222");
         Profile p = new Profile("Shreya", "Cars", d);
@@ -51,11 +48,10 @@ class RosterTest {
         ros.add(r);
         ros.add(r2);
 
-        assrtTrue(Roster.remove(r2));
+        assertTrue(ros.remove(r));
     }
 
     public void test_remove_nonResident() {
-        //medhasri will do
         Roster ros = new Roster();
         Date d = new Date("2/2/2222");
         Profile p = new Profile("Medhasri", "Architect", d);
