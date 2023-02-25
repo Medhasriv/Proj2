@@ -19,6 +19,11 @@ public class Enrollment {
         enrollStudents=enrollList;
         size = s;
     }
+
+    public int getSize()
+    {
+        return size;
+    }
     public void add(EnrollStudent enrollStudent)
     {
 
@@ -65,6 +70,31 @@ public class Enrollment {
             System.out.print(enrollStudents[i]);
         }
     }
+
+
+    public void printByCredits()
+    {
+        for (int i = 0; i < size; i++) {
+            int min = i;
+            for (int j = 1 + i; j < size; j++) {
+                if ((enrollStudents[j].compareTo(enrollStudents[min])) == -1) {
+                    min = j;
+                }
+            }
+            EnrollStudent temp = enrollStudents[min];
+            enrollStudents[min] = enrollStudents[i];
+            enrollStudents[i] = temp;
+
+            for (int k = 0; k < size; k++) { //need to fix the things I'm printing here
+
+                String output = "";
+                output = enrollStudents[k] + " (" + ")";
+                System.out.println(output);
+            }
+        }
+    }
+
+
 
     public void updateCredits(EnrollStudent e, int updatedCredits){
         for(int i=0; i<enrollStudents.length; i++) {

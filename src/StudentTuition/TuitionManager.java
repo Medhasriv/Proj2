@@ -31,10 +31,12 @@ public class TuitionManager {
                 break;
             }else if(inputString.equals("LS")){
                 Scanner fileScanner = new Scanner(new File("studentList.txt"));
-                while(fileScanner.hasNextLine()){
+                while(fileScanner.hasNextLine())
+                {
                         String line = fileScanner.nextLine();
-                        assignValues(inputString.replace(',', ' '));
-                    }
+                        String inputStringValue = inputString.replace(',', ' ');
+                        assignValues("A" + inputStringValue);
+                }
             }else{
                 assignValues(inputString);
             }
@@ -370,12 +372,64 @@ public class TuitionManager {
                 System.out.println("Resident not found.");
             }
 
-        }else if(action.equals("PE")){
+        }else if(action.equals("PE")) //display the current enrollment list, based on their order in the array
+        {
 
-        }else if(action.equals("PT")){
+            if(enrollmentList.getSize() == 0)
+            {
+                System.out.println("Student enrollment list is empty");
+            }
+            else
+            {
+                enrollmentList.print();
+            }
 
-        }else if(action.equals("SE")) {
+        }
+        else if(action.equals("PT")) //display the tuition based on credits
+        {
+            if(enrollmentList.getSize() == 0)
+            {
+                System.out.println("Student enrollment list is empty");
+            }
+            else
+            {
+                enrollmentList.printByCredits();
+            }
 
+        }else if(action.equals("SE")) //return credits
+        {
+            if(enrollmentList.getSize() == 0)
+            {
+                System.out.println("Student enrollment list is empty");
+            }
+            else
+            {
+                for(int i =0; i<enrollmentList.getSize(); i++)
+                {
+                   // if(enrollmentList[i].getCredits() >= 120)
+                   // {
+                     //   System.out.println(enrollmentList[i]);
+                    //}
+                    //}
+
+                }
+            }
+
+            String dob = st.nextToken();
+            int credits = Integer.parseInt((st.nextToken()));
+
+            //Checking date + making profile
+            Date d = new Date(dob);
+            boolean isValid = d.isValid();
+            Profile enrollProfile = new Profile(lastName, firstName, d);
+
+            //making enrollStudent and removing if present
+            EnrollStudent newEnroll = new EnrollStudent(enrollProfile, credits);
+            if(enrollmentList.contains(newEnroll)){
+                enrollmentList.remove(newEnroll);
+            }else {
+                System.out.println("Your student is not enrolled");
+            }
 
         }else if(action.equals("R")) {
             //string tokenizer takes in first name, last name, date of birth

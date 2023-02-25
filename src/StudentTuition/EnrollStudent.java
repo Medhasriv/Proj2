@@ -46,4 +46,22 @@ public class EnrollStudent {
 
     public void setCredits(int c){this.creditsEnrolled = c;}
 
+    public int getCreditsEnrolled()
+    {
+        return creditsEnrolled;
+    }
+    public int compareTo(EnrollStudent enrollStudentOther) {
+        if((this.profile.compareTo(enrollStudentOther.profile))> 0)
+        {
+            return -1;
+        }
+        if((this.profile.compareTo(enrollStudentOther.profile))< 0)
+        {
+            return 1;
+        }
+
+        return 0;
+    }
+
+
 }
