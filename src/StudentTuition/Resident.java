@@ -8,6 +8,7 @@ public class Resident extends Student{
     private int scholarship;
 
     public Resident(Profile p, Major m, int credits) {
+
         super(p, m, credits);
     }
 

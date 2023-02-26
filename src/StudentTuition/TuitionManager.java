@@ -396,7 +396,10 @@ public class TuitionManager {
                 enrollmentList.printByCredits();
             }
 
-        }else if(action.equals("SE")) //return credits
+        }else if(action.equals("SE"))
+            //semester end to add the enrolled credits to the credit
+            //completed in the roster and print out students who have already
+            //completed 120 credits or more.
         {
             if(enrollmentList.getSize() == 0)
             {
@@ -404,32 +407,17 @@ public class TuitionManager {
             }
             else
             {
+                //add enrolled credits to credit completed in the roster
                 for(int i =0; i<enrollmentList.getSize(); i++)
                 {
-                   // if(enrollmentList[i].getCredits() >= 120)
-                   // {
-                     //   System.out.println(enrollmentList[i]);
-                    //}
-                    //}
-
+                    //updateCredits(EnrollStudent e, int creditsCompleted)
+                    EnrollStudent[] enrollmentStudentsList = enrollmentList.getEnrollStudents();
+                    enrollmentList.updateCredits(enrollmentStudentsList[i], enrollmentStudentsList[i].getCreditsEnrolled());
                 }
+
+                enrollmentList.printPastCredits(120);
             }
 
-            String dob = st.nextToken();
-            int credits = Integer.parseInt((st.nextToken()));
-
-            //Checking date + making profile
-            Date d = new Date(dob);
-            boolean isValid = d.isValid();
-            Profile enrollProfile = new Profile(lastName, firstName, d);
-
-            //making enrollStudent and removing if present
-            EnrollStudent newEnroll = new EnrollStudent(enrollProfile, credits);
-            if(enrollmentList.contains(newEnroll)){
-                enrollmentList.remove(newEnroll);
-            }else {
-                System.out.println("Your student is not enrolled");
-            }
 
         }else if(action.equals("R")) {
             //string tokenizer takes in first name, last name, date of birth

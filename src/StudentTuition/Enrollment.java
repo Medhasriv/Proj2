@@ -20,6 +20,10 @@ public class Enrollment {
         size = s;
     }
 
+    public EnrollStudent[] getEnrollStudents() {
+        return enrollStudents;
+    }
+
     public int getSize()
     {
         return size;
@@ -90,6 +94,17 @@ public class Enrollment {
                 String output = "";
                 output = enrollStudents[k] + " (" + ")";
                 System.out.println(output);
+            }
+        }
+    }
+
+    public void printPastCredits(int credits)
+    {
+        for(int i =0; i<size; i++)
+        {
+            if ((enrollStudents[i].getCreditsEnrolled() >= 120))
+            {
+                System.out.println(enrollStudents[i].toString());
             }
         }
     }
