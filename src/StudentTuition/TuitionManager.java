@@ -18,6 +18,7 @@ public class TuitionManager {
      * Reads all the line commands until the user types Q
      */
     public void run() throws FileNotFoundException {
+
         System.out.print("Roster Manager running...\n");
         String inputString;
         boolean checkQuit = false;
@@ -30,15 +31,23 @@ public class TuitionManager {
                 checkQuit = true;
                 break;
             }else if(inputString.equals("LS")){
-                Scanner fileScanner = new Scanner(new File("studentList.txt"));
-                while(fileScanner.hasNextLine())
-                {
+
+                try{
+                    Scanner fileScanner = new Scanner(new File("studentList.txt"));
+                    while(fileScanner.hasNextLine())
+                    {
                         String line = fileScanner.nextLine();
                         String inputStringValue = inputString.replace(',', ' ');
                         assignValues("A" + inputStringValue);
+                    }
                 }
+                catch(FileNotFoundException e)
+                {
+                    System.out.println("no file found");
+                }
+
             }else{
-                assignValues(inputString);
+                assignValues(inputString); //we also need to print updated list once before Q
             }
         }
         input.close();
