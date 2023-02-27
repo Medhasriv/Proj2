@@ -161,6 +161,11 @@ public abstract class Student implements Comparable<Student>{
 
     }
 
+    /**
+     * Returns if a student is a valid based on whether they have 3-24 credits
+     *
+     * @param creditEnrolled is the number of credits the student currently has
+     * */
     public boolean isValid(int creditEnrolled)
     {
         if(creditCompleted>=3 && creditCompleted <=24)
@@ -170,10 +175,16 @@ public abstract class Student implements Comparable<Student>{
         return false;
     }
 
-
-
+    /**
+     * Abstract method to implement in the other classes, calculating the tuition
+     *
+     * @param creditsEnrolled is the number of credits the student currently has
+     * */
     public abstract double tuitionDue(int creditsEnrolled);
 
+    /**
+     * Abstract method implemented in other classes, checks if a student is a resident
+     * */
     public abstract boolean isResident();
 
 
