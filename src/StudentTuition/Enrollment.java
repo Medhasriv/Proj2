@@ -8,26 +8,47 @@ public class Enrollment {
     private EnrollStudent[] enrollStudents;
     private int size;
 
+    /**
+     * Default constructor for the Enrollment class
+     */
     public Enrollment()
     {
         enrollStudents = null;
         size = 0;
     }
-
+    /**
+     * Overloaded constructor for the Enrollment class
+     * @param enrollList the list of students to enroll
+     * @param s the size of the enrollList
+     */
     public Enrollment(EnrollStudent []enrollList, int s)
     {
         enrollStudents=enrollList;
         size = s;
     }
 
+    /**
+     * Get the list of students in the EnrollStudent array
+     * @return enrollStudents the list of Students enrolled
+     */
     public EnrollStudent[] getEnrollStudents() {
         return enrollStudents;
     }
+
+    /**
+     * Return the side of the enrollStudent array
+     * @return size
+     */
 
     public int getSize()
     {
         return size;
     }
+
+    /**
+     * Add a new student to the enrollStudent list
+     * @param enrollStudent
+     */
     public void add(EnrollStudent enrollStudent)
     {
 
@@ -35,6 +56,10 @@ public class Enrollment {
         size++;
     }
 
+    /**
+     * Remove a student from the enrollStudent array
+     * @param enrollStudent
+     */
     public void remove(EnrollStudent enrollStudent)
     {
         int indexOfRemove=0;
@@ -54,7 +79,11 @@ public class Enrollment {
         size--;
     }
 
-
+    /**
+     * Check if a student is part of the current EnrollStudent array
+     * @param enrollStudent, the student that needs to be contained
+     * @return true if the student is found in the EnrollStudent array
+     */
     public boolean contains(EnrollStudent enrollStudent)
     {
         for(int i=0; i<enrollStudents.length; i++)
@@ -67,6 +96,9 @@ public class Enrollment {
         return false;
     }
 
+    /**
+     * print a list of students in the EnrollStudent array
+     */
     public void print()
     {
         for(int i=0; i<enrollStudents.length; i++)
@@ -75,7 +107,9 @@ public class Enrollment {
         }
     }
 
-
+    /**
+     * Print the EnrollStudent array from the lowest to highest credits
+     */
     public void printByCredits()
     {
         for (int i = 0; i < size; i++) {
@@ -98,6 +132,10 @@ public class Enrollment {
         }
     }
 
+    /**
+     * Print the list of students in the EnrollStudent array that a certain credit threshold
+     * @param credits that the students need to have completed to be printed
+     */
     public void printPastCredits(int credits)
     {
         for(int i =0; i<size; i++)
@@ -110,7 +148,11 @@ public class Enrollment {
     }
 
 
-
+    /**
+     * Update the number of credits that a student has
+     * @param e the student whose credits are being updated from the EnrollStudent array
+     * @param updatedCredits the number of credits being added to the student
+     */
     public void updateCredits(EnrollStudent e, int updatedCredits){
         for(int i=0; i<enrollStudents.length; i++) {
             if(enrollStudents[i].equals(e)) {

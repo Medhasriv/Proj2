@@ -231,19 +231,17 @@ public class Date implements Comparable<Date> {
      * Tests the Date class
      */
     public static void Main() {
-//        Date test1 = new Date(2003, 8,18);
-//        test1.isValid();
-//        test1.isLeapYear();
-//        test1.toString();
-//
-//        Date test2 = new Date(2003, 8, 5);
-//        test1.equals(test1);
-//        test1.equals(test2);
-//
-//        test1.compareTo(test1);
-//        test1.compareTo(test2);
-//
+        Date test1 = new Date(2003, 8,18);
+        test1.isValid();
+        test1.isLeapYear();
+        test1.toString();
 
+        Date test2 = new Date(2003, 8, 5);
+        test1.equals(test1);
+        test1.equals(test2);
+
+        test1.compareTo(test1);
+        test1.compareTo(test2);
     }
 }
 

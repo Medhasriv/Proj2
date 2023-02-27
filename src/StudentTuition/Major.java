@@ -11,6 +11,7 @@ public enum Major {
     ITI("04:547", "SC&I"),
     BAIT("33:346", "RBS");
 
+
     private final String courseId;
     private final String school;
 
@@ -19,10 +20,12 @@ public enum Major {
         this.school = school;
     }
 
+
     String getSchool()
     {
         return school;
     }
+
     String getCourseId()
     {
         return courseId;

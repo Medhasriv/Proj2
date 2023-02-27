@@ -6,11 +6,22 @@ package StudentTuition;
 
 public class NonResident extends Student{
 
+    /**
+     * return Default constructor of the NonResident class
+     * @param p the profile
+     * @param m Major
+     * @param cc credits completed
+     */
     public NonResident(Profile p, Major m, int cc)
     {
         super(p, m, cc);
     }
 
+    /**
+     * Calculate the tuitionDue for the nonresident student
+     * @param creditsEnrolled is the number of credits the student currently has
+     * @return the tuition, as a double
+     */
     @Override
     public double tuitionDue(int creditsEnrolled) {
         double tuition = 0;
@@ -29,6 +40,10 @@ public class NonResident extends Student{
 
     }
 
+    /**
+     * Check if the student is a parttime or full time student
+     * @return the student's status as a string
+     */
     public String studentStatus()
     {
         String status = "";
@@ -43,6 +58,10 @@ public class NonResident extends Student{
         return status;
     }
 
+    /**
+     * return if the student is a resident or not
+     * @return true if the student is a resident
+     */
     @Override
     public boolean isResident() {
         return false;
