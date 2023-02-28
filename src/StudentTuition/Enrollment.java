@@ -125,10 +125,14 @@ public class Enrollment {
     public int find(EnrollStudent student) {
         int NOT_FOUND = -1;
         for (int i = 0; i < size; i++) {
-            if (enrollStudents[i].getProfile().equals
-                    (student.getProfile())) {
-                return i;
+            if(enrollStudents[i]!= null)
+            {
+                if (enrollStudents[i].getProfile().equals
+                        (student.getProfile())) {
+                    return i;
+                }
             }
+
         }
         return NOT_FOUND;
     } //search the given student in roster
@@ -152,14 +156,22 @@ public class Enrollment {
     {
         for (int i = 0; i < size; i++) {
             int min = i;
-            for (int j = 1 + i; j < size; j++) {
-                if ((enrollStudents[j].compareTo(enrollStudents[min])) == -1) {
-                    min = j;
+            if(enrollStudents[i]!= null && enrollStudents[min]!=null)
+            {
+                for (int j = 1 + i; j < size; j++) {
+                    if(enrollStudents[j]!= null && enrollStudents[min]!=null)
+                    {
+                        if ((enrollStudents[j].compareTo(enrollStudents[min])) == -1) {
+                            min = j;
+                        }
+                    }
+
                 }
+                EnrollStudent temp = enrollStudents[min];
+                enrollStudents[min] = enrollStudents[i];
+                enrollStudents[i] = temp;
             }
-            EnrollStudent temp = enrollStudents[min];
-            enrollStudents[min] = enrollStudents[i];
-            enrollStudents[i] = temp;
+
 
             for (int k = 0; k < size; k++) { //need to fix the things I'm printing here
 
@@ -178,10 +190,14 @@ public class Enrollment {
     {
         for(int i =0; i<size; i++)
         {
-            if ((enrollStudents[i].getCreditsEnrolled() >= 120))
+            if(enrollStudents[i]!= null)
             {
-                System.out.println(enrollStudents[i].toString());
+                if ((enrollStudents[i].getCreditsEnrolled() >= 120))
+                {
+                    System.out.println(enrollStudents[i].toString());
+                }
             }
+
         }
     }
 

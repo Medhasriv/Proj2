@@ -404,11 +404,24 @@ public class TuitionManager {
                 }
 
             } else if (action.equals("S")) {
+                if(st.countTokens() <=3)
+                {
+                    System.out.println("Missing data in line command.");
+                    return;
+                }
                 String firstName = st.nextToken();
                 String lastName = st.nextToken();
                 String dob = st.nextToken();
-                int scholarshipAmt = Integer.parseInt((st.nextToken()));
 
+                int scholarshipAmt = 0;
+                try{
+                    scholarshipAmt = Integer.parseInt((st.nextToken()));
+                }
+                catch( NumberFormatException e)
+                {
+                    System.out.println("Scholarship amount invalid: not an integer!");
+                    return;
+                }
                 //temporary profile to search for the resident
                 Date d = new Date(dob);
                 boolean isValid = d.isValid();
@@ -453,6 +466,7 @@ public class TuitionManager {
             //semester end to add the enrolled credits to the credit
             //completed in the roster and print out students who have already
             //completed 120 credits or more.
+
             {
                 if (enrollmentList.getSize() == 0) {
                     System.out.println("Student enrollment list is empty");
@@ -461,9 +475,12 @@ public class TuitionManager {
                     for (int i = 0; i < enrollmentList.getSize(); i++) {
                         //updateCredits(EnrollStudent e, int creditsCompleted)
                         EnrollStudent[] enrollmentStudentsList = enrollmentList.getEnrollStudents();
-                        enrollmentList.updateCredits(enrollmentStudentsList[i], enrollmentStudentsList[i].getCreditsEnrolled());
-                    }
+                        if(enrollmentStudentsList[i]!= null)
+                        {
+                            enrollmentList.updateCredits(enrollmentStudentsList[i], enrollmentStudentsList[i].getCreditsEnrolled());
 
+                        }
+                    }
                     enrollmentList.printPastCredits(120);
                 }
 
