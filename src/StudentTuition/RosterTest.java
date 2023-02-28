@@ -5,23 +5,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class RosterTest {
 
     @org.junit.jupiter.api.Test
-    public void test_add_resident() {
-        Roster ros = new Roster();
-        Date d = new Date("2/2/2222");
-        Profile p = new Profile("Shreya", "Cars", d);
-        Resident r = new Resident(p, Major.CS,0);
-        assertTrue(ros.add(r));
-    }
 
-    public void test_add_nonResident() {
-        Roster ros = new Roster();
-        Date d = new Date("2/2/2222");
-        Profile p = new Profile("Medhasri", "Architect", d);
-        NonResident n = new NonResident(p, Major.CS,0);
-        assertTrue(ros.add(n));
-    }
-
-    public void test_add_international() {
+    public void test_add_international_True() {
         Roster ros = new Roster();
         Date d = new Date("2/2/2222");
         Profile p = new Profile("SantiClaus", "J", d);
@@ -29,12 +14,24 @@ class RosterTest {
         assertTrue(ros.add(i));
     }
 
-    public void test_add_TriState() {
+    public void test_add_international_False() {
+        Roster ros = new Roster();
+        International i = null;
+        assertFalse(ros.add(i));
+    }
+
+    public void test_add_TriState_True() {
         Roster ros = new Roster();
         Date d = new Date("2/2/2222");
         Profile p = new Profile("Funjan", "Busch", d);
         TriState t = new TriState(p, Major.CS,0, "NJ");
         assertTrue(ros.add(t));
+    }
+
+    public void test_add_TriState_False() {
+        Roster ros = new Roster();
+        TriState t = null;
+        assertFalse(ros.add(t));
     }
 
     public void test_remove_resident() {
@@ -50,6 +47,8 @@ class RosterTest {
 
         assertTrue(ros.remove(r));
     }
+
+
 
     public void test_remove_nonResident() {
         Roster ros = new Roster();

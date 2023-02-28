@@ -9,9 +9,6 @@ public class Date implements Comparable<Date> {
     private int year;
     private int month;
     private int day;
-    private int a;
-
-
 
     /**
      * default constructor for the Date class
