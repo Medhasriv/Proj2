@@ -94,7 +94,7 @@ public class Enrollment {
             enrollStudents[indexOfRemove] = enrollStudents[i+1];
         }
         size--;
-    }
+
 
     /**
      * Check if a student is part of the current EnrollStudent array
