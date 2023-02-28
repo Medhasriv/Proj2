@@ -39,7 +39,6 @@ public class NonResident extends Student{
         return tuition;
 
     }
-
     /**
      * Check if the student is a parttime or full time student
      * @return the student's status as a string
@@ -57,7 +56,6 @@ public class NonResident extends Student{
         }
         return status;
     }
-
     /**
      * return if the student is a resident or not
      * @return true if the student is a resident

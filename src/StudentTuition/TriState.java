@@ -4,7 +4,7 @@
  */
 package StudentTuition;
 
-public class TriState extends Student{
+public class TriState extends NonResident{
     private String state;
 
     /**

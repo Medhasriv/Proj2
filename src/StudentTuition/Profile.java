@@ -85,7 +85,6 @@ package StudentTuition;
             return fname + " " +  lname + " " + dob.toString();
         }
 
-
         /**
          * @param other profile to compare for
          * @return positive if the first profile is bigger, negative if first profile smaller, zero if they are equal

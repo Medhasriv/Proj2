@@ -13,9 +13,10 @@ public class Enrollment {
      */
     public Enrollment()
     {
-        enrollStudents = null;
-        size = 0;
+        this.enrollStudents = enrollStudents;
+        this.size = size;
     }
+
     /**
      * Overloaded constructor for the Enrollment class
      * @param enrollList the list of students to enroll
@@ -52,9 +53,32 @@ public class Enrollment {
     public void add(EnrollStudent enrollStudent)
     {
 
-        enrollStudents[size] = (enrollStudent);
+        if (enrollStudents == null) {
+            grow();
+        }
+        if (enrollStudents.length - 1 == size) {
+            grow();
+        }
+
+        enrollStudents[size] = enrollStudent;
         size++;
+
     }
+    /**
+     * Grows the size of the student array by 4
+     */
+    private void grow() {
+        EnrollStudent[] newArray = new EnrollStudent[size + 4];
+
+        if (enrollStudents != null) {
+            for (int i = 0; i <= size; i++) {
+                newArray[i] = enrollStudents[i];
+            }
+        }
+
+
+        enrollStudents = newArray;
+    } //increase the array capacity by 4
 
     /**
      * Remove a student from the enrollStudent array
@@ -86,24 +110,45 @@ public class Enrollment {
      */
     public boolean contains(EnrollStudent enrollStudent)
     {
+        if(size==0)
+        {
+            return false;
+        }
         for(int i=0; i<enrollStudents.length; i++)
         {
-            if(enrollStudents[i].equals(enrollStudent))
-            {
+            if (find(enrollStudent) != -1) {
                 return true;
             }
         }
         return false;
+
     }
+
+    /**
+     * Finds the index of a student we are looking for
+     *
+     * @param student student we are searching for
+     * @return index of the student that is being searched
+     */
+    private int find(EnrollStudent student) {
+        int NOT_FOUND = -1;
+        for (int i = 0; i < size; i++) {
+            if (enrollStudents[i].equals(student)) {
+                return i;
+            }
+        }
+        return NOT_FOUND;
+    } //search the given student in roster
+
 
     /**
      * print a list of students in the EnrollStudent array
      */
     public void print()
     {
-        for(int i=0; i<enrollStudents.length; i++)
+        for(int i=0; i<size; i++)
         {
-            System.out.print(enrollStudents[i]);
+            System.out.println(enrollStudents[i].toString());
         }
     }
 
@@ -154,13 +199,15 @@ public class Enrollment {
      * @param updatedCredits the number of credits being added to the student
      */
     public void updateCredits(EnrollStudent e, int updatedCredits){
-        for(int i=0; i<enrollStudents.length; i++) {
-            if(enrollStudents[i].equals(e)) {
-                EnrollStudent tempEnrolled =  enrollStudents[i];
-                tempEnrolled.setCredits(updatedCredits);
-            }
+         int index= find(e);
+         if(index ==-1)
+         {
+             return;
+         }
+         //EnrollStudent tempEnrolled =  enrollStudents[index];
+         e.setCredits(updatedCredits);
         }
     }
 
 
-}
+

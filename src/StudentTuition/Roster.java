@@ -81,10 +81,17 @@ public class Roster {
         if (roster.length - 1 == size) {
             grow();
         }
+
         roster[size] = student;
         size++;
 
+        if(student == null)
+        {
+            return false;
+        }
         return true;
+
+
     } //add student to end of array
 
     /**
@@ -113,7 +120,7 @@ public class Roster {
      * @return boolean which is true if student is in the array
      */
     public boolean contains(Student student) {
-        for (int i = 0; i < size - 1; i++) {
+        for (int i = 0; i <= size - 1; i++) {
             if (find(student) != -1) {
                 return true;
             }
