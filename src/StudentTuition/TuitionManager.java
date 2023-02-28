@@ -367,16 +367,16 @@ public class TuitionManager {
 
                 //making enrollStudent and adding/updating credits
                 EnrollStudent newEnroll = new EnrollStudent(enrollProfile, credits);
-                if (enrollmentList.contains(newEnroll)) {
+                if (enrollmentList.contains(newEnroll)) { //check if profile exists
                     //updating the credits if student already enrolled
                     enrollmentList.updateCredits(newEnroll, credits);
                 } else {
                     enrollmentList.add(newEnroll);
                 }
 
-            } else if (action.equals("D")) {
+            } else if (action.equals("D")) { //drop them based on whether they exist
 
-                if(st.countTokens() <=3)
+                if(st.countTokens() <=2)
                 {
                     System.out.println("Missing data in line command.");
                     return;
@@ -384,7 +384,6 @@ public class TuitionManager {
                 String firstName = st.nextToken();
                 String lastName = st.nextToken();
                 String dob = st.nextToken();
-                int credits = Integer.parseInt((st.nextToken()));
 
                 //Checking date + making profile
                 Date d = new Date(dob);
@@ -392,8 +391,9 @@ public class TuitionManager {
                 Profile enrollProfile = new Profile(lastName, firstName, d);
 
                 //making enrollStudent and removing if present
-                EnrollStudent newEnroll = new EnrollStudent(enrollProfile, credits);
-                if (enrollmentList.contains(newEnroll)) {
+               // EnrollStudent newEnroll = new EnrollStudent(enrollProfile, credits);
+
+                if (enrollmentList.find(enrollProfile)) {
                     enrollmentList.remove(newEnroll);
                 } else {
                     System.out.println("Your student is not enrolled");

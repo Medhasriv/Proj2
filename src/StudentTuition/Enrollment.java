@@ -114,12 +114,12 @@ public class Enrollment {
         {
             return false;
         }
-        for(int i=0; i<enrollStudents.length; i++)
-        {
-            if (find(enrollStudent) != -1) {
+
+
+        if (find(enrollStudent) != -1) {
                 return true;
-            }
         }
+
         return false;
 
     }
@@ -130,10 +130,10 @@ public class Enrollment {
      * @param student student we are searching for
      * @return index of the student that is being searched
      */
-    private int find(EnrollStudent student) {
+    public int find(EnrollStudent student) {
         int NOT_FOUND = -1;
         for (int i = 0; i < size; i++) {
-            if (enrollStudents[i].equals(student)) {
+            if (enrollStudents[i].getProfile().equals(student.getProfile())) {
                 return i;
             }
         }
@@ -205,7 +205,7 @@ public class Enrollment {
              return;
          }
          //EnrollStudent tempEnrolled =  enrollStudents[index];
-         e.setCredits(updatedCredits);
+         enrollStudents[index].setCredits(updatedCredits);
         }
     }
 

@@ -17,6 +17,11 @@ public class EnrollStudent {
         this.creditsEnrolled = 0;
     }
 
+    public Profile getProfile()
+    {
+        return this.profile;
+    }
+
     /**
      * Overloaded constructor for the EnrollStudent class
      * @param p the profile of the Student
@@ -58,7 +63,9 @@ public class EnrollStudent {
      * Sets the number of credits for Student
      * @param c the number of credits for this class
      */
-    public void setCredits(int c){this.creditsEnrolled = c;}
+    public void setCredits(int c){
+        this.creditsEnrolled = c;
+    }
 
     /**
      * Return the number of credits that the student is enrolled to, as an int
