@@ -372,6 +372,7 @@ public class TuitionManager {
                     enrollmentList.updateCredits(newEnroll, credits);
                 } else {
                     enrollmentList.add(newEnroll);
+                    System.out.println(enrollProfile.toString() + " enrolled " + credits + " credits");
                 }
 
             } else if (action.equals("D")) { //drop them based on whether they exist
@@ -389,14 +390,17 @@ public class TuitionManager {
                 Date d = new Date(dob);
                 boolean isValid = d.isValid();
                 Profile enrollProfile = new Profile(lastName, firstName, d);
+                int credits =0;
 
                 //making enrollStudent and removing if present
-               // EnrollStudent newEnroll = new EnrollStudent(enrollProfile, credits);
+               EnrollStudent newEnroll = new EnrollStudent(enrollProfile, credits);
 
-                if (enrollmentList.find(enrollProfile)) {
+                if (enrollmentList.contains(newEnroll)) {
                     enrollmentList.remove(newEnroll);
+                    System.out.println(enrollProfile.toString()+ " dropped.");
+
                 } else {
-                    System.out.println("Your student is not enrolled");
+                    System.out.println(enrollProfile.toString()+ " is not enrolled");
                 }
 
             } else if (action.equals("S")) {

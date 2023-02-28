@@ -86,15 +86,8 @@ public class Enrollment {
      */
     public void remove(EnrollStudent enrollStudent)
     {
-        int indexOfRemove=0;
-        for(int i =0; i<enrollStudents.length; i++)
-        {
-            if(enrollStudents[i].equals(enrollStudent))
-            {
-                enrollStudents[i] = null;
-                indexOfRemove = i;
-            }
-        }
+        int indexOfRemove= find(enrollStudent);
+        enrollStudents[indexOfRemove] = null;
 
         for(int i=indexOfRemove; i<enrollStudents.length-1; i++)
         {
@@ -115,7 +108,6 @@ public class Enrollment {
             return false;
         }
 
-
         if (find(enrollStudent) != -1) {
                 return true;
         }
@@ -133,7 +125,8 @@ public class Enrollment {
     public int find(EnrollStudent student) {
         int NOT_FOUND = -1;
         for (int i = 0; i < size; i++) {
-            if (enrollStudents[i].getProfile().equals(student.getProfile())) {
+            if (enrollStudents[i].getProfile().equals
+                    (student.getProfile())) {
                 return i;
             }
         }

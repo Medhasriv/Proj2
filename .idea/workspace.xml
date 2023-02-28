@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b150fe9-102e-457e-9c34-0c5f8a89c78f" name="Changes" comment="">
+    <list default="true" id="5b150fe9-102e-457e-9c34-0c5f8a89c78f" name="Changes" comment="Comments on resident, student, and triState">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/StudentTuition/Enrollment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StudentTuition/Enrollment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StudentTuition/International.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StudentTuition/International.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StudentTuition/NonResident.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StudentTuition/NonResident.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StudentTuition/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StudentTuition/Student.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/StudentTuition/TuitionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StudentTuition/TuitionManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,6 +19,7 @@
       <list>
         <option value="Enum" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -39,10 +37,81 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\medha\Desktop\compsci stuff\CS213\Proj2" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="StudentTuition" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.RunProject2">
+    <configuration name="RunProject2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="StudentTuition.RunProject2" />
+      <module name="Proj2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="StudentTuition.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RosterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Proj2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="StudentTuition.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="StudentTuition" />
+      <option name="MAIN_CLASS_NAME" value="StudentTuition.RosterTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RosterTest.test_add_resident" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Proj2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="StudentTuition.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="StudentTuition" />
+      <option name="MAIN_CLASS_NAME" value="StudentTuition.RosterTest" />
+      <option name="METHOD_NAME" value="test_add_resident" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.RunProject2" />
+        <item itemvalue="JUnit.RosterTest" />
+        <item itemvalue="JUnit.RosterTest.test_add_resident" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -52,6 +121,65 @@
       <option name="presentableId" value="Default" />
       <updated>1676655864804</updated>
     </task>
+    <task id="LOCAL-00001" summary="Adding classes">
+      <created>1676657762404</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1676657762404</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Changes to reisdent, tristate, and enrollStudent">
+      <created>1676916595810</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1676916595810</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Initial changes to Tuitionmanager">
+      <created>1677015253364</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1677015253364</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Initial changes to Tuitionmanager">
+      <created>1677017383433</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1677017383433</updated>
+    </task>
+    <task id="LOCAL-00005" summary="E, D, S on TuitionManager completed and starting RosterTest">
+      <created>1677170949932</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1677170949932</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Fixing testing">
+      <created>1677365633807</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1677365633807</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Comments on resident, student, and triState">
+      <created>1677475101714</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1677475101715</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Adding classes" />
+    <MESSAGE value="Changes to reisdent, tristate, and enrollStudent" />
+    <MESSAGE value="Initial changes to Tuitionmanager" />
+    <MESSAGE value="E, D, S on TuitionManager completed and starting RosterTest" />
+    <MESSAGE value="Fixing testing" />
+    <MESSAGE value="Comments on resident, student, and triState" />
+    <option name="LAST_COMMIT_MESSAGE" value="Comments on resident, student, and triState" />
   </component>
 </project>
